@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  testdb:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+  testdocker:
+    image: ${DOCKER_REGISTRY-}testdocker
+    build:
+      context: .
+      dockerfile: testDocker/Dockerfile
+
+volumes:
+   pgadmin_data:
+    
